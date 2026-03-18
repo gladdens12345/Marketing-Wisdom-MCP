@@ -1,21 +1,25 @@
 # 🧠 Marketing Wisdom MCP
 
-> **A free MCP server that gives Claude instant access to a vector database of AI-processed insights from 1,100+ podcast episodes.**
+> **A free MCP server that gives any AI assistant instant access to a vector database of AI-processed insights from 1,000+ podcast episodes.**
 
-Search business ideas, growth tactics, revenue models, and founder stories from two of the best business podcasts on YouTube — right inside Claude.
+Search business ideas, growth tactics, revenue models, and founder stories from two of the best business podcasts on YouTube — right inside your AI tool of choice.
 
 | 🎙️ Show | 📊 Episodes | 🎯 Focus |
 |---------|------------|---------|
-| **My First Million** | 979 | Business ideas, trends, growth tactics, deal structures |
-| **Starter Story** | 130 | Founder journeys, revenue milestones, business models |
+| **My First Million** | 911 | Business ideas, trends, growth tactics, deal structures |
+| **Starter Story** | 129 | Founder journeys, revenue milestones, business models |
 
 Every episode has been broken down into structured insight categories and embedded into a vector database. This isn't keyword matching — it understands what you're actually looking for.
 
 ---
 
-## ⚡ Quick Start
+## ⚡ Connect
 
-Add this URL as an integration in Claude.ai:
+Unlike a Chrome extension or ChatGPT plugin, an MCP server works with **any compliant AI client** — you connect once and it works everywhere.
+
+### Claude.ai
+
+Add this URL as an integration:
 
 ```
 https://marketingwisdommcp.com/api/mcp
@@ -25,17 +29,57 @@ https://marketingwisdommcp.com/api/mcp
 
 That's it. No API keys, no setup, no cost. 🎉
 
+> Requires a paid Claude plan (Pro, Team, or Enterprise)
+
+### Claude Code
+
+```bash
+claude mcp add --transport http marketing-wisdom https://marketingwisdommcp.com/api/mcp
+```
+
+### Cursor, Windsurf, VS Code, Claude Desktop & More
+
+Add this to your MCP config file:
+
+```json
+{
+  "mcpServers": {
+    "marketing-wisdom": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://marketingwisdommcp.com/api/mcp"]
+    }
+  }
+}
+```
+
+> Uses [`mcp-remote`](https://www.npmjs.com/package/mcp-remote) to handle OAuth authentication locally.
+
+### ChatGPT
+
+Connect via **Settings → Connectors → Add MCP** and paste the URL.
+
+---
+
+## 🔌 Compatible Platforms
+
+| Category | Platforms |
+|----------|----------|
+| 💬 **AI Chat** | Claude.ai, Claude Desktop, ChatGPT, Google Gemini CLI |
+| 💻 **AI Coding** | Cursor, Windsurf, VS Code (Copilot), Cline, Zed, Replit, JetBrains |
+| 🏢 **Enterprise** | Microsoft Copilot Studio, Amazon Bedrock, Azure OpenAI |
+| 🔧 **CLI & Dev** | Claude Code, Goose, any app using the MCP TypeScript or Python SDK |
+
 ---
 
 ## 🔧 Tools
 
-Once connected, Claude gains 4 tools:
+Once connected, your AI gains 4 tools:
 
 | Tool | What It Does |
 |------|-------------|
-| 🔍 `search_insights` | Semantic search across all episodes — ask about any business topic and get relevant insights with sources |
-| 📖 `get_episode` | Pull the full structured breakdown for a specific episode by title |
-| 📋 `list_episodes` | Browse all available episodes with pagination |
+| 🔍 `search_insights` | Search the full knowledge base by topic — ask about any business concept and get structured insights with episode sources |
+| 📖 `get_episode` | Get the complete breakdown for a specific episode by title |
+| 📋 `list_episodes` | Browse all available episodes by date |
 | 📊 `get_stats` | Database statistics and category breakdowns |
 
 ---
@@ -44,7 +88,7 @@ Once connected, Claude gains 4 tools:
 
 Every episode was processed into 8 structured categories tailored to each show's format.
 
-### 🎙️ My First Million
+### 🎙️ My First Million — 8 Categories
 
 | # | Category | What's Extracted |
 |---|----------|-----------------|
@@ -57,7 +101,7 @@ Every episode was processed into 8 structured categories tailored to each show's
 | 7 | 🧩 **Frameworks & Mental Models** | Repeating frameworks, decision heuristics, rules of thumb |
 | 8 | 👤 **Key People & Companies Referenced** | Name-drops, case studies, books/resources, specific stats cited |
 
-### 🎙️ Starter Story
+### 🎙️ Starter Story — 8 Categories
 
 | # | Category | What's Extracted |
 |---|----------|-----------------|
@@ -74,7 +118,7 @@ Every episode was processed into 8 structured categories tailored to each show's
 
 ## 💬 Example Queries
 
-Try asking Claude things like:
+Try asking your AI things like:
 
 > 🔹 *"What are the best cold email strategies from My First Million?"*
 >
@@ -95,7 +139,8 @@ Try asking Claude things like:
 | | |
 |---|---|
 | 🗄️ **Database** | Vector database with semantic embeddings |
-| 📊 **Scale** | 1,100+ episodes → 6,700+ insight chunks |
+| 📊 **Scale** | 1,000+ episodes → 6,700+ insight chunks |
+| 📅 **Date Range** | 2015 – 2026 (over a decade of content) |
 | 🌐 **Hosting** | Cloudflare Workers — fast globally, always on |
 | 🔐 **Auth** | OAuth via Google or GitHub |
 | 💸 **Price** | Free, no rate limits |
@@ -104,9 +149,10 @@ Try asking Claude things like:
 
 ## ❓ Troubleshooting
 
-- Make sure you're adding it in **Claude.ai → Settings → Integrations** (not Claude Code or the API)
-- If auth fails, try disconnecting and reconnecting the integration
-- Works with Claude Pro, Team, and Enterprise plans
+- **Claude.ai** — Add it via Settings → Integrations (requires Pro, Team, or Enterprise plan)
+- **Cursor / Windsurf / VS Code** — Make sure you have Node.js installed (needed for `npx mcp-remote`)
+- **Auth issues** — Try disconnecting and reconnecting the integration
+- **Still stuck?** — [Open an issue](https://github.com/gladdens12345/Marketing-Wisdom-MCP/issues)
 
 ---
 
