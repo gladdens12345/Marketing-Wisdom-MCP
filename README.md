@@ -15,31 +15,28 @@ Every episode has been broken down into structured insight categories and embedd
 
 ## ⚡ Connect
 
-MCP server works with **any compliant AI client** — you connect once and it works everywhere.
-
-### Claude.ai
-
-Add this URL as an integration:
+An MCP server works with **any compliant AI client** — you connect once and it works everywhere.
 
 ```
 https://marketingwisdommcp.com/api/mcp
 ```
 
-**Settings → Integrations → Add MCP → paste the URL → sign in with Google or GitHub**
+### Claude.ai
+
+**Settings → Connectors → Add → paste the URL → sign in with Google or GitHub**
 
 That's it. No API keys, no setup, no cost. 🎉
 
-> Requires a paid Claude plan (Pro, Team, or Enterprise)
+### ChatGPT
 
-### Claude Code
+**Settings → Apps and Connectors → Advanced Settings → enable Developer Mode → Create → paste the URL → complete OAuth**
 
-```bash
-claude mcp add --transport http marketing-wisdom https://marketingwisdommcp.com/api/mcp
-```
+### Claude Desktop
 
-### Cursor, Windsurf, VS Code, Claude Desktop & More
+Edit your config file and add the JSON below:
 
-Add this to your MCP config file:
+- **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
 
 ```json
 {
@@ -52,11 +49,60 @@ Add this to your MCP config file:
 }
 ```
 
-> Uses [`mcp-remote`](https://www.npmjs.com/package/mcp-remote) to handle OAuth authentication locally.
+### Claude Code
 
-### ChatGPT
+```bash
+claude mcp add --transport http marketing-wisdom https://marketingwisdommcp.com/api/mcp
+```
 
-Connect via **Settings → Connectors → Add MCP** and paste the URL.
+### Cursor
+
+Add to your Cursor MCP config (`.cursor/mcp.json` in your project or `~/.cursor/mcp.json` globally):
+
+```json
+{
+  "mcpServers": {
+    "marketing-wisdom": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://marketingwisdommcp.com/api/mcp"]
+    }
+  }
+}
+```
+
+### Windsurf
+
+Add to `~/.codeium/windsurf/mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "marketing-wisdom": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://marketingwisdommcp.com/api/mcp"]
+    }
+  }
+}
+```
+
+### VS Code (GitHub Copilot)
+
+Add to `.vscode/mcp.json` in your project:
+
+```json
+{
+  "mcpServers": {
+    "marketing-wisdom": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://marketingwisdommcp.com/api/mcp"]
+    }
+  }
+}
+```
+
+### Other MCP Clients
+
+Any client that supports MCP can connect using the URL above. For stdio-based clients, use [`mcp-remote`](https://www.npmjs.com/package/mcp-remote) to bridge OAuth authentication.
 
 ---
 
@@ -149,9 +195,10 @@ Try asking your AI things like:
 
 ## ❓ Troubleshooting
 
-- **Claude.ai** — Add it via Settings → Integrations (requires Pro, Team, or Enterprise plan)
+- **Claude.ai** — Add via Settings → Connectors
+- **ChatGPT** — Enable Developer Mode in Advanced Settings first
 - **Cursor / Windsurf / VS Code** — Make sure you have Node.js installed (needed for `npx mcp-remote`)
-- **Auth issues** — Try disconnecting and reconnecting the integration
+- **Auth issues** — Try disconnecting and reconnecting
 - **Still stuck?** — [Open an issue](https://github.com/gladdens12345/Marketing-Wisdom-MCP/issues)
 
 ---
