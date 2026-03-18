@@ -15,7 +15,7 @@ Every episode has been broken down into structured insight categories and embedd
 
 ## ⚡ Connect
 
-Unlike a Chrome extension or ChatGPT plugin, an MCP server works with **any compliant AI client** — you connect once and it works everywhere.
+MCP server works with **any compliant AI client** — you connect once and it works everywhere.
 
 ### Claude.ai
 
