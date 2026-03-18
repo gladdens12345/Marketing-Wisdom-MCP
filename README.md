@@ -120,17 +120,17 @@ Every episode was processed into 8 structured categories tailored to each show's
 
 Try asking your AI things like:
 
-> 🔹 *"What are the best cold email strategies from My First Million?"*
+> 🔹 *"What are the best cold email strategies for getting first customers?"*
 >
-> 🔹 *"Find episodes about one-person businesses making over $500K"*
+> 🔹 *"How do one-person businesses scale past $500K?"*
 >
-> 🔹 *"What frameworks does Sam Parr use to evaluate business ideas?"*
+> 🔹 *"What are the most common frameworks for evaluating business ideas?"*
 >
-> 🔹 *"Show me Starter Story episodes about SaaS businesses"*
+> 🔹 *"How are people monetizing newsletters right now?"*
 >
-> 🔹 *"What growth tactics are working right now according to MFM?"*
+> 🔹 *"What growth tactics are working for SaaS companies?"*
 >
-> 🔹 *"Find insights about newsletter monetization"*
+> 🔹 *"What does a typical day look like for a solopreneur making $50K/month?"*
 
 ---
 
