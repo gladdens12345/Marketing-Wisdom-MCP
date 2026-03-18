@@ -100,6 +100,21 @@ Add to `.vscode/mcp.json` in your project:
 }
 ```
 
+### Antigravity
+
+Click **... → MCP Servers → Manage MCP Servers → View raw config** and add to `mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "marketing-wisdom": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://marketingwisdommcp.com/api/mcp"]
+    }
+  }
+}
+```
+
 ### Other MCP Clients
 
 Any client that supports MCP can connect using the URL above. For stdio-based clients, use [`mcp-remote`](https://www.npmjs.com/package/mcp-remote) to bridge OAuth authentication.
@@ -111,7 +126,7 @@ Any client that supports MCP can connect using the URL above. For stdio-based cl
 | Category | Platforms |
 |----------|----------|
 | 💬 **AI Chat** | Claude.ai, Claude Desktop, ChatGPT, Google Gemini CLI |
-| 💻 **AI Coding** | Cursor, Windsurf, VS Code (Copilot), Cline, Zed, Replit, JetBrains |
+| 💻 **AI Coding** | Cursor, Windsurf, VS Code (Copilot), Antigravity, Cline, Zed, Replit, JetBrains |
 | 🏢 **Enterprise** | Microsoft Copilot Studio, Amazon Bedrock, Azure OpenAI |
 | 🔧 **CLI & Dev** | Claude Code, Goose, any app using the MCP TypeScript or Python SDK |
 
